@@ -49,14 +49,13 @@ def remove_backup():
 def update_blog():
 
     build_blog()
+    make_backup()
+    clean_server()
     try:
-        make_backup()
-        clean_server()
-        ok = copy_to_server()
+        copy_to_server()
         remove_backup()
     except:
         print red("Copy failed. :(")
-        clean_server()
         revert_backup()
     else:
         print green("Copy succeeded. :D")

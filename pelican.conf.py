@@ -20,3 +20,5 @@ SOCIAL = (('twitter', 'http://twitter.com/brodul'),
           ('github', 'http://github.com/brodul'),)
 
 
+THEME = 'theme'
+# THEME_STATIC_PATHS = ['theme/static']

@@ -9,6 +9,7 @@ from fabric.operations import put
 env.user = "root"
 env.hosts = ["webi"]
 
+@task
 def build_blog():
     """docstring for build_blog"""
     local("bin/pelican -d -s pelican.conf.py")

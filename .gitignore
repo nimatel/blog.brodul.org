@@ -28,3 +28,6 @@ pip-log.txt
 
 # Pelican output
 output
+
+# Draft post
+content/blog/draft*

@@ -2,7 +2,7 @@ Virtualbox modules setup - Ubuntu 12.04
 =======================================
 
 :date: 2012-07-15 16:54
-:tags: fail, virtualbox
+:tags: fail, virtualbox, ubuntu_fail
 :category: GNU-linux
 
 There is allways something wrong about vbox modules. And thas is completly normal, because adding modules to the kernel is not that trivial.

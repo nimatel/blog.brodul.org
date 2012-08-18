@@ -23,6 +23,7 @@ def local_server_deploy():
         local('git clone -b %(branch)s %(repository)s .' % env)
         local('python bootstrap.py -d')
         local('bin/buildout')
+        local('mkdir output')
         update_blog()
 
     local('rm -rf %(building_dir)s' % env)

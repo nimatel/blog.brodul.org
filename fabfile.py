@@ -2,12 +2,30 @@
 # -*- coding: utf-8 -*-
 
 from fabric.api import run, local, task, env
+from fabric.context_managers import cd
 from fabric.colors import blue, red, green
 from fabric.operations import put
 
 
 env.user = "root"
-env.hosts = ["webi"]
+env.building_dir = "/tmp/building_blog"
+env.production_dir = ""
+env.branch = "deploy"
+env.repository = "git://github.com/brodul/blog.brodul.org.git"
+
+
+@task
+def local_server_deploy():
+    """docstring for local_server_deploy"""
+    local('mkdir -p %(building_dir)s' % env)
+
+    with cd(env.building_dir):
+        local('git clone -b %(branch)s %(repository)s .' % env)
+        local('python bootstrap.py -d')
+        local('bin/buildout')
+        update_blog()
+
+    local('rm -rf %(building_dir)s' % env)
 
 @task
 def build_blog():

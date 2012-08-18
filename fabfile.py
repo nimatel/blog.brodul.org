@@ -20,7 +20,7 @@ def local_server_deploy():
     local('python bootstrap.py -d')
     print blue("Running buildout ...")
     local('bin/buildout')
-    local('rm -r output')
+    local('rm -rf output')
     local('mkdir output')
     update_blog()
     print green("Local deploy done.")

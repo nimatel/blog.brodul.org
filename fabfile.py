@@ -25,10 +25,12 @@ def local_server_deploy():
     update_blog()
     print green("Local deploy done.")
 
+
 @task
 def build_blog():
     """docstring for build_blog"""
     local("bin/pelican -d -s pelican.conf.py")
+
 
 def copy_to_server():
     """docstring for copy_to_server"""

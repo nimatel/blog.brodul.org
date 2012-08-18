@@ -6,7 +6,6 @@ from fabric.colors import blue, red, green
 from fabric.operations import put
 
 
-env.user = "root"
 env.building_dir = "/tmp/building_blog"
 env.production_dir = ""
 env.branch = "deploy"
@@ -17,11 +16,14 @@ env.repository = "git://github.com/brodul/blog.brodul.org.git"
 def local_server_deploy():
     """docstring for local_server_deploy"""
 
+    print blue("Bootstraping buildout ...")
     local('python bootstrap.py -d')
+    print blue("Running buildout ...")
     local('bin/buildout')
     local('mkdir output')
     update_blog()
     local('rm -r output')
+    print green("Local deploy done.")
 
 @task
 def build_blog():

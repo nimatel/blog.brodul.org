@@ -10,6 +10,7 @@ env.building_dir = "/tmp/building_blog"
 env.production_dir = ""
 env.branch = "deploy"
 env.repository = "git://github.com/brodul/blog.brodul.org.git"
+env.use_ssh_config = True
 
 
 @task
